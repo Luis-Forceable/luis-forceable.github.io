@@ -3,83 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
+    <title>Portafolio de Luis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Diseño Base */
+        /* Variables de Color (El corazón del diseño) */
+        :root {
+            --bg-color: #121212; /* Negro asfalto */
+            --text-color: #e0e0e0; /* Blanco humo */
+            --accent-color: #FF8700; /* McLaren Papaya Orange */
+            --secondary-text: #a0a0a0; /* Gris plata */
+        }
+
+        /* Diseño Base Minimalista */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117; /* Fondo oscuro estilo GitHub */
-            color: #c9d1d9; /* Texto claro */
+            font-family: 'Inter', sans-serif; /* Tipografía limpia */
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.8; /* Más espacio entre líneas para leer mejor */
         }
         
         /* Contenedor Principal */
         .container {
-            max-width: 800px;
+            max-width: 750px; /* Un poco más estrecho para enfocar la vista */
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 25px;
         }
 
         /* Encabezado */
         header {
-            text-align: center;
-            padding: 50px 0;
-            border-bottom: 1px solid #30363d;
+            text-align: left; /* Alineación izquierda es más moderna */
+            padding: 80px 0 40px;
         }
         
         h1 {
-            color: #58a6ff; /* Azul GitHub */
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 3rem; /* Título grande e impactante */
             margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        /* Un detalle sutil de velocidad debajo del nombre */
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background-color: var(--accent-color);
+            margin-top: 20px;
+            /* Un pequeño ángulo para simular velocidad */
+            transform: skewX(-20deg); 
         }
 
         .subtitle {
             font-size: 1.2rem;
-            color: #8b949e;
+            color: var(--secondary-text);
+            font-weight: 400;
+            margin-top: 25px;
         }
 
         /* Secciones */
         section {
-            padding: 40px 0;
-            border-bottom: 1px solid #21262d;
+            padding: 60px 0;
+            /* Líneas separadoras muy sutiles */
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
         }
 
         h2 {
-            color: #fff;
-            border-left: 5px solid #238636; /* Verde Botón */
-            padding-left: 15px;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
         }
 
-        /* Tarjetas de Proyectos */
+        /* Un punto naranja técnico antes de cada título de sección */
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            margin-right: 15px;
+        }
+
+        /* Tarjetas de Proyectos Minimalistas */
         .project-card {
-            background-color: #161b22;
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #30363d;
-            margin-top: 20px;
+            /* Sin fondo ni bordes gruesos, solo el contenido */
+            background-color: transparent;
+            padding: 30px 0;
+            border-bottom: 1px solid #222; /* Separador sutil */
+            transition: transform 0.3s ease;
         }
 
+        .project-card:hover {
+            /* Pequeño desplazamiento a la derecha al pasar el mouse, como adelantando */
+            transform: translateX(10px);
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        /* Botones Estilo F1 */
         .btn {
             display: inline-block;
-            background-color: #238636;
-            color: white;
-            padding: 10px 20px;
+            background-color: transparent; /* Fondo transparente */
+            color: var(--accent-color); /* Texto naranja */
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-top: 10px;
+            border: 2px solid var(--accent-color); /* Borde naranja sólido */
+            border-radius: 0; /* Bordes afilados, técnicos */
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase; /* Texto en mayúsculas */
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         .btn:hover {
-            background-color: #2ea043;
+            background-color: var(--accent-color); /* Se llena de naranja al pasar */
+            color: #000000; /* Texto negro para máximo contraste */
         }
 
         /* Pie de página */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             font-size: 0.9rem;
-            color: #8b949e;
+            color: var(--secondary-text);
+            border-top: 1px solid #2a2a2a;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -88,39 +163,44 @@
     <div class="container">
         
         <header>
-            <h1>Hola, soy Luis</h1>
-            <p class="subtitle">Desarrollador en formación | Aprendiendo GitHub</p>
+            <h1>Hola, soy Luis.</h1>
+            <p class="subtitle">Desarrollador en formación. Creando experiencias digitales con pasión y precisión.</p>
         </header>
 
         <section>
             <h2>Sobre mí</h2>
             <p>
-                Soy un apasionado por la tecnología empezando mi camino en el desarrollo web. 
-                Actualmente estoy aprendiendo cómo gestionar versiones con Git y desplegar aplicaciones en la nube.
-                Me gusta resolver problemas y crear herramientas útiles.
+                Me impulsa la curiosidad por entender cómo funcionan las cosas y la emoción de construir soluciones desde cero. Estoy enfocado en dominar el desarrollo web y las herramientas modernas como Git para llevar mis ideas a la "pista" de internet. Siempre buscando optimizar mi rendimiento y aprender nuevas tecnologías.
             </p>
         </section>
 
         <section>
-            <h2>💻 Mis Proyectos</h2>
+            <h2>Mis Proyectos</h2>
             
             <div class="project-card">
                 <h3>Juego de Amigo Secreto</h3>
-                <p>Una aplicación web interactiva para organizar sorteos de amigos secretos. Hecho con HTML, CSS y JavaScript.</p>
-                <a href="https://luis-forceable.github.io/Amigo-Secreto" class="btn" target="_blank">Ver Proyecto</a>
+                <p>Una aplicación web interactiva y rápida para organizar sorteos. Desarrollada con lógica limpia en JavaScript y una interfaz sencilla en HTML/CSS. Mi primer despliegue oficial.</p>
+                <a href="AQUI_TU_ENLACE_DE_GITHUB_PAGES" class="btn" target="_blank">Ver Proyecto en Vivo</a>
             </div>
 
-            </section>
+            <div class="project-card">
+                <h3>Sistema de Gestión (Terminal)</h3>
+                <p>Aplicación de consola robusta (C++/Python) para el manejo eficiente de datos. Demuestra el uso de estructuras complejas y algoritmos optimizados. ¡Pronto subiré la evidencia visual!</p>
+                <a href="#" class="btn" style="opacity: 0.5; cursor: not-allowed;">Próximamente</a>
+            </div>
+        </section>
 
         <section>
             <h2>Contacto</h2>
-            <p>¿Quieres hablar de código o colaborar en algo?</p>
-            <p>📧 Email: tu-correo@ejemplo.com</p>
-            <p>🔗 GitHub: <a href="https://github.com/Luis-Forceable" style="color: #58a6ff;">github.com/Luis-Forceable</a></p>
+            <p>¿Listo para iniciar una colaboración o charlar sobre código? Mis canales están abiertos.</p>
+            <div style="margin-top: 30px;">
+                <a href="mailto:tu-correo@ejemplo.com" class="btn">Enviar Correo</a>
+                <a href="https://github.com/Luis-Forceable" class="btn" target="_blank" style="margin-left: 20px;">Perfil de GitHub</a>
+            </div>
         </section>
 
         <footer>
-            <p>© 2025 Luis. Creado y alojado en GitHub Pages.</p>
+            <p>© 2025 Luis. Impulsado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
         </footer>
 
     </div>
