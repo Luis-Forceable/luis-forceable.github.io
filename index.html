@@ -6,201 +6,256 @@
     <title>Portafolio de Luis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables de Color (El corazón del diseño) */
         :root {
-            --bg-color: #121212; /* Negro asfalto */
-            --text-color: #e0e0e0; /* Blanco humo */
-            --accent-color: #FF8700; /* McLaren Papaya Orange */
-            --secondary-text: #a0a0a0; /* Gris plata */
+            /* Paleta McLaren 2024 */
+            --bg-color: #101010;       /* Asfalto Oscuro */
+            --card-bg: #1c1c1c;        /* Fibra de Carbono (simulado) */
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+            --papaya: #FF8000;         /* McLaren Papaya */
+            --mclaren-blue: #47C7FC;   /* Azul Acento */
         }
 
-        /* Diseño Base Minimalista */
         body {
-            font-family: 'Inter', sans-serif; /* Tipografía limpia */
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             margin: 0;
-            line-height: 1.8; /* Más espacio entre líneas para leer mejor */
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Barra superior de velocidad */
+        .top-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, var(--papaya) 60%, var(--mclaren-blue) 60%);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
         }
         
-        /* Contenedor Principal */
         .container {
-            max-width: 750px; /* Un poco más estrecho para enfocar la vista */
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 25px;
+            padding: 60px 20px;
         }
 
-        /* Encabezado */
+        /* HEADER */
         header {
-            text-align: left; /* Alineación izquierda es más moderna */
-            padding: 80px 0 40px;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        .role-badge {
+            display: inline-block;
+            background-color: rgba(71, 199, 252, 0.1); /* Azul muy suave */
+            color: var(--mclaren-blue);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
         }
         
         h1 {
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 3rem; /* Título grande e impactante */
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
             letter-spacing: -1px;
+            background: -webkit-linear-gradient(right, var(--text-main), #999);
+            -webkit-background-clip: text;
         }
 
-        /* Un detalle sutil de velocidad debajo del nombre */
-        h1::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 6px;
-            background-color: var(--accent-color);
-            margin-top: 20px;
-            /* Un pequeño ángulo para simular velocidad */
-            transform: skewX(-20deg); 
+        h1 span {
+            color: var(--papaya); /* El punto final es naranja */
         }
 
         .subtitle {
             font-size: 1.2rem;
-            color: var(--secondary-text);
-            font-weight: 400;
-            margin-top: 25px;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            max-width: 600px;
         }
 
-        /* Secciones */
+        /* SECCIONES */
         section {
-            padding: 60px 0;
-            /* Líneas separadoras muy sutiles */
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        section:last-of-type {
-            border-bottom: none;
+            padding: 50px 0;
         }
 
         h2 {
-            color: #ffffff;
             font-size: 1.8rem;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--papaya);
+            padding-left: 15px;
+        }
+
+        /* TECH STACK (NUEVO) - Aquí agregamos color */
+        .tech-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            font-weight: 600;
             display: flex;
             align-items: center;
+            transition: transform 0.2s;
         }
 
-        /* Un punto naranja técnico antes de cada título de sección */
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent-color);
-            margin-right: 15px;
+        .tech-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--papaya);
         }
 
-        /* Tarjetas de Proyectos Minimalistas */
+        .dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* CARDS DE PROYECTOS */
         .project-card {
-            /* Sin fondo ni bordes gruesos, solo el contenido */
-            background-color: transparent;
-            padding: 30px 0;
-            border-bottom: 1px solid #222; /* Separador sutil */
-            transition: transform 0.3s ease;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 3px solid transparent; /* Invisible por defecto */
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            /* Pequeño desplazamiento a la derecha al pasar el mouse, como adelantando */
-            transform: translateX(10px);
+            border-left: 3px solid var(--papaya); /* Aparece la línea naranja al pasar */
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .project-card:last-child {
-            border-bottom: none;
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 1.4rem;
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
         }
 
-        /* Botones Estilo F1 */
+        .project-tag {
+            font-size: 0.75rem;
+            background-color: #333;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #ccc;
+        }
+
         .btn {
             display: inline-block;
-            background-color: transparent; /* Fondo transparente */
-            color: var(--accent-color); /* Texto naranja */
-            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--papaya), #ff9933);
+            color: #000;
+            padding: 10px 25px;
             text-decoration: none;
-            border: 2px solid var(--accent-color); /* Borde naranja sólido */
-            border-radius: 0; /* Bordes afilados, técnicos */
+            border-radius: 4px;
             font-weight: 700;
             margin-top: 20px;
-            transition: all 0.3s ease;
-            text-transform: uppercase; /* Texto en mayúsculas */
-            letter-spacing: 1px;
             font-size: 0.9rem;
         }
 
         .btn:hover {
-            background-color: var(--accent-color); /* Se llena de naranja al pasar */
-            color: #000000; /* Texto negro para máximo contraste */
+            filter: brightness(1.1);
         }
 
-        /* Pie de página */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-            border-top: 1px solid #2a2a2a;
-            margin-top: 40px;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            margin-left: 10px;
         }
-        
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
+    <div class="top-stripe"></div>
+
     <div class="container">
         
         <header>
-            <h1>Hola, soy Luis.</h1>
-            <p class="subtitle">Desarrollador en formación. Creando experiencias digitales con pasión y precisión.</p>
+            <span class="role-badge">Ingeniero de Software en formación</span>
+            <h1>Luis<span>.</span></h1>
+            <p class="subtitle">Desarrollador enfocado en C++, Python y Tecnologías Web. Construyendo soluciones rápidas y eficientes.</p>
         </header>
 
         <section>
-            <h2>Sobre mí</h2>
-            <p>
-                Me impulsa la curiosidad por entender cómo funcionan las cosas y la emoción de construir soluciones desde cero. Estoy enfocado en dominar el desarrollo web y las herramientas modernas como Git para llevar mis ideas a la "pista" de internet. Siempre buscando optimizar mi rendimiento y aprender nuevas tecnologías.
-            </p>
+            <h2>Stack Tecnológico</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <span class="dot" style="background-color: #00599C;"></span> C++
+                </div>
+                <div class="tech-item">
+                    <span class="dot" style="background-color: #FFD43B;"></span> Python
+                </div>
+                <div class="tech-item">
+                    <span class="dot" style="background-color: #E76F00;"></span> Java
+                </div>
+                <div class="tech-item">
+                    <span class="dot" style="background-color: #00758F;"></span> SQL
+                </div>
+            </div>
         </section>
 
         <section>
-            <h2>Mis Proyectos</h2>
+            <h2>Proyectos Destacados</h2>
             
             <div class="project-card">
-                <h3>Juego de Amigo Secreto</h3>
-                <p>Una aplicación web interactiva y rápida para organizar sorteos. Desarrollada con lógica limpia en JavaScript y una interfaz sencilla en HTML/CSS. Mi primer despliegue oficial.</p>
-                <a href="AQUI_TU_ENLACE_DE_GITHUB_PAGES" class="btn" target="_blank">Ver Proyecto en Vivo</a>
+                <div class="project-header">
+                    <h3>Amigo Secreto</h3>
+                    <span class="project-tag">HTML / JS</span>
+                </div>
+                <p style="color: #ccc;">Aplicación web interactiva para sorteos. Despliegue rápido y diseño responsive.</p>
+                <a href="AQUI_TU_ENLACE_DE_AMIGO_SECRETO" class="btn" target="_blank">Ver Demo</a>
             </div>
 
             <div class="project-card">
-                <h3>Sistema de Gestión (Terminal)</h3>
-                <p>Aplicación de consola robusta (C++/Python) para el manejo eficiente de datos. Demuestra el uso de estructuras complejas y algoritmos optimizados. ¡Pronto subiré la evidencia visual!</p>
-                <a href="#" class="btn" style="opacity: 0.5; cursor: not-allowed;">Próximamente</a>
+                <div class="project-header">
+                    <h3>Sistema de Gestión</h3>
+                    <span class="project-tag">C++ / Python</span>
+                </div>
+                <p style="color: #ccc;">Algoritmos de gestión de datos y estructuras complejas. Optimización de recursos en consola.</p>
+                <a href="#" class="btn btn-outline" style="cursor: default;">Ver Código (Pronto)</a>
             </div>
         </section>
 
         <section>
             <h2>Contacto</h2>
-            <p>¿Listo para iniciar una colaboración o charlar sobre código? Mis canales están abiertos.</p>
-            <div style="margin-top: 30px;">
-                <a href="mailto:tu-correo@ejemplo.com" class="btn">Enviar Correo</a>
-                <a href="https://github.com/Luis-Forceable" class="btn" target="_blank" style="margin-left: 20px;">Perfil de GitHub</a>
-            </div>
+            <p style="color: #ccc; margin-bottom: 20px;">¿Interesado en colaborar? Envíame un mensaje.</p>
+            <a href="mailto:tu-correo@ejemplo.com" style="color: var(--mclaren-blue); text-decoration: none; font-weight: bold; font-size: 1.1rem;">➔ Enviar Correo Electrónico</a>
         </section>
 
         <footer>
-            <p>© 2025 Luis. Impulsado por <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+            <p>© 2025 Luis | Powered by GitHub Pages</p>
         </footer>
 
     </div>
