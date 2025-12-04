@@ -140,6 +140,88 @@
             color: var(--mclaren-blue);
         }
 
+
+        /* --- PARTE 2: PANEL DE TECNOLOGÍAS Y PROYECTOS --- */
+        
+        /* Contenedor de la rejilla de botones */
+        .tech-nav-grid {
+            display: grid;
+            /* Crea columnas automáticas que no bajen de 130px */
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 15px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        /* El botón rectangular de tecnología */
+        .tech-btn {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            color: var(--text-secondary);
+            padding: 15px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Efecto al pasar el mouse (Glow McLaren) */
+        .tech-btn:hover {
+            border-color: var(--papaya);
+            color: white;
+            transform: translateY(-3px);
+            background-color: #252525;
+        }
+
+        /* Iconos de colores específicos */
+        .tech-btn i { font-size: 1.2rem; }
+        .fa-html5 { color: #E34F26; }
+        .fa-css3-alt { color: #1572B6; }
+        .fa-java { color: #007396; }
+        .fa-python { color: #FFD43B; }
+        .fa-database { color: #00758F; } /* SQL */
+        .fa-cloud { color: #F80000; } /* OCI */
+        .fa-cuttlefish { color: #00599C; } /* C++ */
+
+        /* --- SECCIÓN DE LISTA DE PROYECTOS --- */
+        .projects-container {
+            padding: 60px 0;
+            border-top: 1px solid #222;
+        }
+
+        /* Categoría individual (donde aterriza el botón) */
+        .project-category {
+            scroll-margin-top: 100px; /* Para que el menú fijo de arriba no tape el título */
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            color: var(--mclaren-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--papaya);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Placeholder (Espacio vacío para rellenar después) */
+        .project-placeholder {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px dashed #444;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+        }
+
+        
         /* --- SECCIÓN CONTACTO (FOOTER) --- */
         #contacto {
             background-color: #0a0a0a;
@@ -265,7 +347,55 @@
             </div>
         </header>
     </div>
+<div class="tech-nav-grid">
+        <a href="#html-css" class="tech-btn"><i class="fab fa-html5"></i> HTML</a>
+        <a href="#html-css" class="tech-btn"><i class="fab fa-css3-alt"></i> CSS</a>
+        <a href="#java" class="tech-btn"><i class="fab fa-java"></i> Java</a>
+        <a href="#python" class="tech-btn"><i class="fab fa-python"></i> Python</a>
+        <a href="#cpp" class="tech-btn"><i class="fab fa-cuttlefish"></i> C++</a>
+        <a href="#sql" class="tech-btn"><i class="fas fa-database"></i> SQL</a>
+        <a href="#oci" class="tech-btn"><i class="fas fa-cloud"></i> OCI</a>
+    </div>
 
+    <div class="projects-container">
+        
+        <div id="html-css" class="project-category">
+            <h3 class="category-title"><i class="fab fa-html5"></i> Proyectos Web (HTML/CSS)</h3>
+            
+            <div class="project-placeholder">
+                <p>Espacio reservado para proyectos de Amigo Secreto y Portafolio Web.</p>
+            </div>
+        </div>
+
+        <div id="java" class="project-category">
+            <h3 class="category-title"><i class="fab fa-java"></i> Proyectos Java</h3>
+            <div class="project-placeholder">
+                <p>Espacio reservado para aplicaciones Java.</p>
+            </div>
+        </div>
+
+        <div id="python" class="project-category">
+            <h3 class="category-title"><i class="fab fa-python"></i> Proyectos Python</h3>
+            <div class="project-placeholder">
+                <p>Espacio reservado para scripts de automatización y backend.</p>
+            </div>
+        </div>
+
+        <div id="cpp" class="project-category">
+            <h3 class="category-title"><i class="fab fa-cuttlefish"></i> Proyectos C++</h3>
+            <div class="project-placeholder">
+                <p>Espacio reservado para sistemas y algoritmos en C++.</p>
+            </div>
+        </div>
+
+        <div id="sql" class="project-category">
+            <h3 class="category-title"><i class="fas fa-database"></i> Bases de Datos & Cloud (SQL/OCI)</h3>
+            <div id="oci" class="project-placeholder">
+                <p>Espacio reservado para arquitecturas en Oracle Cloud y consultas SQL.</p>
+            </div>
+        </div>
+
+    </div>
     <section id="contacto">
         <div class="container">
             <div class="contact-layout">
