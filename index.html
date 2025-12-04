@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* --- SISTEMA DE DISEÑO MCLAREN --- */
         :root {
-            /* Paleta McLaren & Dark Mode */
             --bg-color: #101010;
             --card-bg: #1c1c1c;
             --text-main: #ffffff;
             --text-secondary: #b0b0b0;
             --papaya: #FF8000;         
             --mclaren-blue: #47C7FC;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al dar clic en Contactar */
         }
 
         body {
@@ -27,6 +31,9 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .top-stripe {
@@ -41,18 +48,22 @@
         .container {
             max-width: 850px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 20px;
+            flex: 1;
         }
 
-        /* HEADER */
+        /* --- HEADER --- */
         header {
-            padding: 60px 0 40px;
-            border-bottom: 1px solid #333;
+            padding: 100px 0 60px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .role-badge {
             display: inline-block;
-            background-color: rgba(255, 128, 0, 0.1); /* Papaya suave */
+            background-color: rgba(255, 128, 0, 0.1);
             color: var(--papaya);
             padding: 5px 12px;
             border-radius: 4px;
@@ -60,63 +71,68 @@
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255, 128, 0, 0.3);
+            width: fit-content;
         }
         
         h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             margin: 0;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             color: white;
+            line-height: 1.1;
         }
 
-        h1 span {
-            color: var(--mclaren-blue); /* Punto azul esta vez */
-        }
+        h1 span { color: var(--mclaren-blue); }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
-            margin-top: 15px;
+            margin-top: 25px;
             max-width: 700px;
         }
 
-        /* Botones de Acción (CV y Contacto) */
+        /* --- BOTONES --- */
         .action-buttons {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
             background-color: var(--papaya);
             color: #000;
-            padding: 12px 25px;
+            padding: 14px 30px;
             text-decoration: none;
             border-radius: 4px;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.3s;
+            border: 2px solid var(--papaya);
         }
 
         .btn-primary:hover {
-            background-color: #ff9933;
-            transform: translateY(-2px);
+            background-color: transparent;
+            color: var(--papaya);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--text-main);
-            padding: 12px 25px;
+            padding: 14px 30px;
             text-decoration: none;
             border-radius: 4px;
             font-weight: 600;
-            border: 1px solid #444;
+            border: 2px solid #333;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-secondary:hover {
@@ -124,111 +140,105 @@
             color: var(--mclaren-blue);
         }
 
-        /* SECCIONES */
-        section {
-            padding: 50px 0;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2 i {
-            color: var(--mclaren-blue);
-            font-size: 1.4rem;
-        }
-
-        /* TECH STACK */
-        .tech-grid {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tech-item {
-            background-color: var(--card-bg);
-            padding: 10px 20px;
-            border-radius: 6px;
-            border: 1px solid #333;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            color: #ddd;
-        }
-
-        .tech-item i {
-            margin-right: 10px;
-        }
-
-        /* CERTIFICADOS (NUEVO ESTILO) */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptable */
-            gap: 20px;
-        }
-
-        .cert-card {
-            background: linear-gradient(145deg, #1c1c1c, #151515);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--mclaren-blue);
-            transition: transform 0.3s;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-            background: #252525;
-        }
-
-        .cert-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: white;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .cert-issuer {
-            font-size: 0.85rem;
-            color: var(--papaya);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .cert-date {
-            font-size: 0.8rem;
-            color: #777;
-        }
-
-        /* PROYECTOS */
-        .project-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border: 1px solid #333;
-        }
-
-        .project-header h3 {
-            margin: 0;
-            color: var(--papaya);
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 50px;
-            padding-top: 30px;
+        /* --- SECCIÓN CONTACTO (FOOTER) --- */
+        #contacto {
+            background-color: #0a0a0a;
             border-top: 1px solid #333;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
+            padding: 80px 0;
+            margin-top: 50px;
         }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-item i {
+            color: var(--mclaren-blue);
+            font-size: 1.3rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        .info-item a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover { color: var(--papaya); }
+
+        /* Estilo especial para el enlace de LinkedIn */
+        .linkedin-link {
+            color: var(--mclaren-blue) !important;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+        }
+        .linkedin-link:hover {
+            border-bottom: 1px solid var(--papaya);
+        }
+
+        /* --- ESTILOS DEL FORMULARIO --- */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            padding: 15px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--papaya);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--mclaren-blue);
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: filter 0.3s;
+        }
+
+        .btn-submit:hover { filter: brightness(1.2); }
+
     </style>
 </head>
 <body>
@@ -236,98 +246,68 @@
     <div class="top-stripe"></div>
 
     <div class="container">
-        
         <header>
             <span class="role-badge">Ingeniero en Sistemas</span>
-            
             <h1>Luis Contreras<span>.</span></h1>
-            
             <p class="subtitle">
                 Especialista en Backend y Arquitectura Cloud (OCI). 
-                Construyo sistemas robustos y escalables utilizando C++, Python y SQL. 
-                Apasionado por la optimización de datos y la infraestructura en la nube.
+                Construyo sistemas robustos y escalables utilizando C++, Python y SQL.
             </p>
 
             <div class="action-buttons">
-                <a href="cv.pdf" class="btn-primary" target="_blank">
+                <a href="cv.pdf" class="btn-primary" download>
                     <i class="fas fa-file-download"></i> Descargar CV
                 </a>
-                <a href="mailto:tu-correo@ejemplo.com" class="btn-secondary">
+                
+                <a href="#contacto" class="btn-secondary">
                     <i class="fas fa-envelope"></i> Contactar
                 </a>
             </div>
         </header>
-
-        <section>
-            <h2><i class="fas fa-code"></i> Stack Tecnológico</h2>
-            <div class="tech-grid">
-                <div class="tech-item"><i class="fas fa-cloud" style="color: #F80000;"></i> Oracle Cloud (OCI)</div>
-                <div class="tech-item"><i class="fas fa-database" style="color: #00758F;"></i> SQL / Bases de Datos</div>
-                <div class="tech-item"><i class="fab fa-cuttlefish" style="color: #00599C;"></i> C++</div>
-                <div class="tech-item"><i class="fab fa-python" style="color: #FFD43B;"></i> Python</div>
-                <div class="tech-item"><i class="fas fa-server" style="color: #ccc;"></i> Backend Development</div>
-                <div class="tech-item"><i class="fab fa-git-alt" style="color: #F1502F;"></i> Git & GitHub</div>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-certificate"></i> Certificaciones y Cursos</h2>
-            <div class="cert-grid">
-                
-                <div class="cert-card">
-                    <span class="cert-issuer">Oracle</span>
-                    <span class="cert-title">OCI Foundations Associate</span>
-                    <span class="cert-date">Expedido: 2024</span>
-                </div>
-
-                <div class="cert-card">
-                    <span class="cert-issuer">Udemy / Coursera</span>
-                    <span class="cert-title">Master en C++ Avanzado</span>
-                    <span class="cert-date">Expedido: 2024</span>
-                </div>
-
-                <div class="cert-card">
-                    <span class="cert-issuer">Universidad</span>
-                    <span class="cert-title">Diplomado en Bases de Datos SQL</span>
-                    <span class="cert-date">Expedido: 2023</span>
-                </div>
-
-                </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-laptop-code"></i> Proyectos</h2>
-            
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Sistema de Gestión Backend</h3>
-                </div>
-                <p style="color: #ccc;">Arquitectura de servidor diseñada en C++ para manejo eficiente de memoria y alta concurrencia.</p>
-                <a href="#" class="btn-secondary" style="font-size: 0.9rem;">Ver en GitHub</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Automatización con Python</h3>
-                </div>
-                <p style="color: #ccc;">Scripts para automatizar despliegues en infraestructura Oracle Cloud (OCI).</p>
-                <a href="#" class="btn-secondary" style="font-size: 0.9rem;">Ver en GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Amigo Secreto Web</h3>
-                </div>
-                <p style="color: #ccc;">Aplicación web para práctica de lógica de programación.</p>
-                <a href="AQUI_TU_ENLACE_AMIGO_SECRETO" style="color: var(--papaya); text-decoration: none;">Ver Demo →</a>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2025 Luis Contreras. Ingeniero en Sistemas.</p>
-        </footer>
-
     </div>
+
+    <section id="contacto">
+        <div class="container">
+            <div class="contact-layout">
+                
+                <div class="contact-info">
+                    <h2>Hablemos de Código</h2>
+                    <p style="color: #888; margin-bottom: 30px;">
+                        ¿Tienes un proyecto en mente o buscas un especialista en Backend/OCI? 
+                        Estoy disponible para nuevas oportunidades.
+                    </p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+52 55 2779 6773</span>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contreras.tellez.lm@gmail.com">contreras.tellez.lm@gmail.com</a>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/luis-contreras-0b0a48241" target="_blank" class="linkedin-link">
+                            Ver Perfil de LinkedIn <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 5px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xovglajw" method="POST">
+                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                        <input type="email" name="_replyto" placeholder="Tu Correo Electrónico" required>
+                        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
