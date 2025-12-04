@@ -21,7 +21,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Desplazamiento suave al dar clic en Contactar */
+            scroll-behavior: smooth; /* Desplazamiento suave */
         }
 
         body {
@@ -94,7 +94,7 @@
             max-width: 700px;
         }
 
-        /* --- BOTONES --- */
+        /* --- BOTONES HEADER --- */
         .action-buttons {
             margin-top: 40px;
             display: flex;
@@ -140,63 +140,65 @@
             color: var(--mclaren-blue);
         }
 
-
+        /* --- PARTE 2: PANEL DE TECNOLOGÍAS (COMPACTO) --- */
         
-
-        /* --- PARTE 2 MEJORADA: PANEL Y ESPACIADO --- */
-        
-        /* Título Nuevo de Tecnologías */
         .section-header {
             text-align: center;
-            margin-top: 60px; /* Separación del Header */
-            margin-bottom: 30px;
+            margin-top: 40px; 
+            margin-bottom: 20px;
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
-            justify-content: center; /* Centrar texto y el borde naranja */
-            border-left: none; /* Quitamos el borde lateral del diseño anterior */
-            border-bottom: 3px solid var(--papaya); /* Lo ponemos abajo para variar */
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--papaya);
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            color: white;
         }
 
-        /* Contenedor de la rejilla de botones */
+        /* Contenedor Compacto (Flex) */
         .tech-nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-            gap: 20px; /* Más espacio entre botones */
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 10px; 
             width: 100%;
-            margin-bottom: 80px; /* MUCHO espacio antes de que empiecen los proyectos */
-            padding: 0 20px; /* Aire extra a los lados */
+            max-width: 800px; 
+            margin: 0 auto 60px auto; 
+            padding: 0 10px;
         }
 
-        /* El botón rectangular de tecnología */
+        /* El botón rectangular COMPACTO */
         .tech-btn {
             background-color: var(--card-bg);
             border: 1px solid #333;
             color: var(--text-secondary);
-            padding: 20px 15px; /* Botones más altos y cómodos */
-            border-radius: 8px;
+            padding: 8px 16px; /* AQUI ESTÁ EL CAMBIO: Relleno pequeño */
+            border-radius: 4px;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            gap: 8px;
+            font-size: 0.9rem; 
+            font-weight: 600;
+            transition: all 0.2s ease;
+            min-width: 100px; 
+            flex: 1 0 auto; 
+            max-width: 160px; 
         }
 
         .tech-btn:hover {
             border-color: var(--papaya);
             color: white;
-            transform: translateY(-5px); /* Se levanta más al pasar el mouse */
             background-color: #222;
+            transform: translateY(-2px);
         }
 
-        /* Iconos */
-        .tech-btn i { font-size: 1.4rem; }
+        .tech-btn i { font-size: 1rem; }
+        
+        /* Colores de Iconos */
         .fa-html5 { color: #E34F26; }
         .fa-css3-alt { color: #1572B6; }
         .fa-java { color: #007396; }
@@ -207,15 +209,14 @@
 
         /* --- SECCIÓN DE LISTA DE PROYECTOS --- */
         .projects-container {
-            /* Aquí está el truco para que no se pegue a los marcos */
             padding: 0 20px 80px 20px; 
         }
 
         .project-category {
             scroll-margin-top: 120px;
-            margin-bottom: 80px; /* Más separación entre categorías */
-            background-color: rgba(255, 255, 255, 0.02); /* Fondo muy sutil para encuadrar */
-            padding: 40px; /* Relleno interno para que el texto no toque el borde del cuadro */
+            margin-bottom: 80px;
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 40px;
             border-radius: 12px;
             border: 1px solid #222;
         }
@@ -241,7 +242,6 @@
             color: #777;
         }
 
-        
         /* --- SECCIÓN CONTACTO (FOOTER) --- */
         #contacto {
             background-color: #0a0a0a;
@@ -289,7 +289,6 @@
 
         .info-item a:hover { color: var(--papaya); }
 
-        /* Estilo especial para el enlace de LinkedIn */
         .linkedin-link {
             color: var(--mclaren-blue) !important;
             font-weight: bold;
@@ -368,7 +367,7 @@
         </header>
     </div>
 
-   <div class="section-header">
+    <div class="section-header">
         <h2>Arsenal Tecnológico</h2>
         <p style="color: #888; margin-top: 10px;">Selecciona una tecnología para ver los proyectos relacionados</p>
     </div>
@@ -421,6 +420,7 @@
         </div>
 
     </div>
+
     <section id="contacto">
         <div class="container">
             <div class="contact-layout">
