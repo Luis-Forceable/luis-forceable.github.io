@@ -141,16 +141,34 @@
         }
 
 
-        /* --- PARTE 2: PANEL DE TECNOLOGÍAS Y PROYECTOS --- */
         
+
+        /* --- PARTE 2 MEJORADA: PANEL Y ESPACIADO --- */
+        
+        /* Título Nuevo de Tecnologías */
+        .section-header {
+            text-align: center;
+            margin-top: 60px; /* Separación del Header */
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            justify-content: center; /* Centrar texto y el borde naranja */
+            border-left: none; /* Quitamos el borde lateral del diseño anterior */
+            border-bottom: 3px solid var(--papaya); /* Lo ponemos abajo para variar */
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
         /* Contenedor de la rejilla de botones */
         .tech-nav-grid {
             display: grid;
-            /* Crea columnas automáticas que no bajen de 130px */
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-            gap: 15px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 20px; /* Más espacio entre botones */
             width: 100%;
+            margin-bottom: 80px; /* MUCHO espacio antes de que empiecen los proyectos */
+            padding: 0 20px; /* Aire extra a los lados */
         }
 
         /* El botón rectangular de tecnología */
@@ -158,67 +176,69 @@
             background-color: var(--card-bg);
             border: 1px solid #333;
             color: var(--text-secondary);
-            padding: 15px 10px;
-            border-radius: 6px;
+            padding: 20px 15px; /* Botones más altos y cómodos */
+            border-radius: 8px;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-weight: 600;
+            gap: 12px;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Efecto al pasar el mouse (Glow McLaren) */
         .tech-btn:hover {
             border-color: var(--papaya);
             color: white;
-            transform: translateY(-3px);
-            background-color: #252525;
+            transform: translateY(-5px); /* Se levanta más al pasar el mouse */
+            background-color: #222;
         }
 
-        /* Iconos de colores específicos */
-        .tech-btn i { font-size: 1.2rem; }
+        /* Iconos */
+        .tech-btn i { font-size: 1.4rem; }
         .fa-html5 { color: #E34F26; }
         .fa-css3-alt { color: #1572B6; }
         .fa-java { color: #007396; }
         .fa-python { color: #FFD43B; }
-        .fa-database { color: #00758F; } /* SQL */
-        .fa-cloud { color: #F80000; } /* OCI */
-        .fa-cuttlefish { color: #00599C; } /* C++ */
+        .fa-database { color: #00758F; }
+        .fa-cloud { color: #F80000; }
+        .fa-cuttlefish { color: #00599C; }
 
         /* --- SECCIÓN DE LISTA DE PROYECTOS --- */
         .projects-container {
-            padding: 60px 0;
-            border-top: 1px solid #222;
+            /* Aquí está el truco para que no se pegue a los marcos */
+            padding: 0 20px 80px 20px; 
         }
 
-        /* Categoría individual (donde aterriza el botón) */
         .project-category {
-            scroll-margin-top: 100px; /* Para que el menú fijo de arriba no tape el título */
-            margin-bottom: 60px;
+            scroll-margin-top: 120px;
+            margin-bottom: 80px; /* Más separación entre categorías */
+            background-color: rgba(255, 255, 255, 0.02); /* Fondo muy sutil para encuadrar */
+            padding: 40px; /* Relleno interno para que el texto no toque el borde del cuadro */
+            border-radius: 12px;
+            border: 1px solid #222;
         }
 
         .category-title {
-            color: var(--mclaren-blue);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--papaya);
-            padding-left: 15px;
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
+        
+        .category-title i { color: var(--mclaren-blue); }
 
-        /* Placeholder (Espacio vacío para rellenar después) */
         .project-placeholder {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: #151515;
             border: 1px dashed #444;
-            padding: 30px;
+            padding: 40px;
             border-radius: 8px;
             text-align: center;
-            color: #666;
+            color: #777;
         }
 
         
@@ -347,7 +367,14 @@
             </div>
         </header>
     </div>
-<div class="tech-nav-grid">
+
+//Parte 2 --------------------------
+   <div class="section-header">
+        <h2>Arsenal Tecnológico</h2>
+        <p style="color: #888; margin-top: 10px;">Selecciona una tecnología para ver los proyectos relacionados</p>
+    </div>
+
+    <div class="tech-nav-grid">
         <a href="#html-css" class="tech-btn"><i class="fab fa-html5"></i> HTML</a>
         <a href="#html-css" class="tech-btn"><i class="fab fa-css3-alt"></i> CSS</a>
         <a href="#java" class="tech-btn"><i class="fab fa-java"></i> Java</a>
@@ -360,38 +387,37 @@
     <div class="projects-container">
         
         <div id="html-css" class="project-category">
-            <h3 class="category-title"><i class="fab fa-html5"></i> Proyectos Web (HTML/CSS)</h3>
-            
+            <h3 class="category-title"><i class="fab fa-html5"></i> Web & Frontend</h3>
             <div class="project-placeholder">
-                <p>Espacio reservado para proyectos de Amigo Secreto y Portafolio Web.</p>
+                <p>Proyectos de HTML5, CSS3 y Diseño Responsivo.</p>
             </div>
         </div>
 
         <div id="java" class="project-category">
-            <h3 class="category-title"><i class="fab fa-java"></i> Proyectos Java</h3>
+            <h3 class="category-title"><i class="fab fa-java"></i> Java Development</h3>
             <div class="project-placeholder">
-                <p>Espacio reservado para aplicaciones Java.</p>
+                <p>Aplicaciones de escritorio y POO en Java.</p>
             </div>
         </div>
 
         <div id="python" class="project-category">
-            <h3 class="category-title"><i class="fab fa-python"></i> Proyectos Python</h3>
+            <h3 class="category-title"><i class="fab fa-python"></i> Python & Automation</h3>
             <div class="project-placeholder">
-                <p>Espacio reservado para scripts de automatización y backend.</p>
+                <p>Scripts, Data Science y Automatización.</p>
             </div>
         </div>
 
         <div id="cpp" class="project-category">
-            <h3 class="category-title"><i class="fab fa-cuttlefish"></i> Proyectos C++</h3>
+            <h3 class="category-title"><i class="fab fa-cuttlefish"></i> C++ Systems</h3>
             <div class="project-placeholder">
-                <p>Espacio reservado para sistemas y algoritmos en C++.</p>
+                <p>Algoritmos de alto rendimiento y gestión de memoria.</p>
             </div>
         </div>
 
         <div id="sql" class="project-category">
-            <h3 class="category-title"><i class="fas fa-database"></i> Bases de Datos & Cloud (SQL/OCI)</h3>
+            <h3 class="category-title"><i class="fas fa-database"></i> Cloud & Data (OCI/SQL)</h3>
             <div id="oci" class="project-placeholder">
-                <p>Espacio reservado para arquitecturas en Oracle Cloud y consultas SQL.</p>
+                <p>Arquitectura en Oracle Cloud y consultas a Bases de Datos.</p>
             </div>
         </div>
 
